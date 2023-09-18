@@ -24,6 +24,7 @@ public class Deck implements CardSource, Iterable<Card> {
     public void shuffle() {
         Collections.shuffle(this.aCards);
     }
+    public void sort() {Collections.sort(this.aCards);}
 
     public Card draw() {
         int last = this.aCards.size()-1;
