@@ -12,7 +12,16 @@ public class DeckController {
 
     private final Deck aDeck = new Deck();
 
+    /**
+     * Initializes and checks if deck exists.
+     */
     public void initialize() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        if(aDeck.isEmpty()){
+            alert.setContentText("No deck exists.");
+            alert.show();
+        }
         this.displayDeck();
     }
 
@@ -36,13 +45,17 @@ public class DeckController {
      */
     @FXML
     protected void onShowButtonClick() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         for(Iterator<Card> iter = aDeck.iterator(); iter.hasNext(); ){
             Card card = iter.next();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-            alert.setContentText(card.toString());
-            alert.showAndWait();
+            if(card != null){
+                alert.setContentText(card.toString());
+                alert.showAndWait();
+            }
+            else{
+                alert.setContentText("No cards in deck.");
+            }
         }
     }
 

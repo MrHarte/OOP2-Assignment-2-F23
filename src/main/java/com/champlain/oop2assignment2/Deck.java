@@ -10,6 +10,7 @@ public class Deck implements CardSource, Iterable<Card> {
 
     /**
      * Iterator override to iterate the Card ArrayList one by one.
+     * @see Card Iterator is made up of List of Cards.
      * @return aCards as an iterator type
      */
     @Override
