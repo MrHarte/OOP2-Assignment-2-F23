@@ -1,11 +1,11 @@
 package com.champlain.oop2assignment2;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.function.Consumer;
 
-public class Deck implements CardSource {
+public class Deck implements CardSource, Iterable {
     private final List<Card> aCards = new ArrayList<Card>();
+    private final int currentSize;
 
     public Deck() {
         for (Rank currentRank : Rank.values()) {
@@ -13,6 +13,7 @@ public class Deck implements CardSource {
                 this.aCards.add(new Card(currentRank, currentSuit));
             }
         }
+        this.currentSize = aCards.size();
     }
 
     public void shuffle() {
@@ -40,5 +41,31 @@ public class Deck implements CardSource {
             result += currentCard.toString() + "\n";
         }
         return result;
+    }
+
+    @Override
+    public Iterator iterator() {
+        Iterator it = new Iterator() {
+            private int currentIndex = 0;
+            @Override
+            public boolean hasNext() {
+                return currentIndex < currentSize && aCards.get(currentIndex) != null;
+            }
+            @Override
+            public Object next() {
+                return aCards.get(currentIndex++);
+            }
+        };
+        return it;
+    }
+
+    @Override
+    public void forEach(Consumer action) {
+        Iterable.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator spliterator() {
+        return Iterable.super.spliterator();
     }
 }
