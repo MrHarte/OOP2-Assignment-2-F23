@@ -3,6 +3,8 @@ package com.champlain.oop2assignment2;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
+import java.util.Iterator;
+
 public class DeckController {
     @FXML
     private TextArea aDeckTextArea;
@@ -21,12 +23,24 @@ public class DeckController {
 
     @FXML
     protected void onSortButtonClick() {
-        aDeckTextArea.setText("This does not sort anything yet.");
+        aDeck.sort();
+        this.displayDeck();
     }
 
     @FXML
     protected void onShowButtonClick() {
-        aDeckTextArea.setText("This does not step through anything yet.");
+        StringBuilder message = new StringBuilder();
+        Iterator<Card> iterator = aDeck.iterator();
+        int cardCount = 0;
+
+        while (iterator.hasNext()) {
+            Card card = iterator.next();
+            
+            message.append("Going through cards with confirmation messages (").append(++cardCount).append(" times): ")
+                    .append(card).append("\n");
+        }
+
+        aDeckTextArea.setText(message.toString());
     }
 
     private void displayDeck () {
