@@ -3,6 +3,9 @@ package com.champlain.oop2assignment2;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * implement Comparable interface for use in sorting the deck.
+ */
 public class Card implements Comparable<Card> {
     private final Suit aSuit;
 
@@ -26,6 +29,11 @@ public class Card implements Comparable<Card> {
         return this.aRank + " of " + this.aSuit;
     }
 
+    /**
+     * Uses compareTo method to sort card by rank then suit.
+     * @param pCard the object to be compared.
+     * @return Suit ordinal then rank comparison to the sort ranks.
+     */
     public int compareTo(Card pCard){
         int rankComparison = aRank.ordinal() - pCard.aRank.ordinal();
 

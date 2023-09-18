@@ -22,12 +22,18 @@ public class DeckController {
         this.displayDeck();
     }
 
+    /**
+     * Sort cards in ascending order by Rank then Suit.
+     */
     @FXML
     protected void onSortButtonClick() {
         this.aDeck.sort();
         this.displayDeck();
     }
 
+    /**
+     * Iterates each cards one by one in an alert window in order of the ArrayList.
+     */
     @FXML
     protected void onShowButtonClick() {
 

@@ -8,6 +8,10 @@ import java.util.List;
 public class Deck implements CardSource, Iterable<Card> {
     private final List<Card> aCards = new ArrayList<Card>();
 
+    /**
+     * Iterator override to iterate the Card ArrayList one by one.
+     * @return aCards as an iterator type
+     */
     @Override
     public Iterator<Card> iterator(){
         return aCards.iterator();
@@ -24,6 +28,10 @@ public class Deck implements CardSource, Iterable<Card> {
     public void shuffle() {
         Collections.shuffle(this.aCards);
     }
+
+    /**
+     * Sort method to call sort from Collections to sort cards in ascending order.
+     */
     public void sort() {Collections.sort(this.aCards);}
 
     public Card draw() {
