@@ -25,6 +25,10 @@ public class Card implements Comparable<Card> {
 
     @Override
     public int compareTo(Card o) {
+        if (this.aSuit == null || this.aRank == null || o.aSuit == null || o.aRank == null) {
+            throw new IllegalArgumentException();
+        }
+
         if (this.aRank.compareTo(o.aRank) != 0) {
             return this.aRank.compareTo(o.aRank);
         } else if (this.aSuit.compareTo(o.aSuit) != 0) {
