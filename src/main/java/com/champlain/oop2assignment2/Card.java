@@ -1,5 +1,8 @@
 package com.champlain.oop2assignment2;
 
+import javax.swing.*;
+import java.util.NoSuchElementException;
+
 public class Card implements Comparable<Card>{
     private final Suit aSuit;
 
@@ -23,14 +26,25 @@ public class Card implements Comparable<Card>{
         return this.aRank + " of " + this.aSuit;
     }
 
+    /**
+     * Override the compareTo method
+     * @author Joshua and Zach
+     * @param o the object to be compared.
+     * @return
+     */
     @Override
     public int compareTo(Card o) {
-        int compareRank;
-        compareRank = this.aRank.compareTo(o.getRank());
+        try {
+            int compareSuit;
+            compareSuit = this.aSuit.compareTo(o.getSuit());
 
-        if (compareRank == 0) {
-            return this.aSuit.compareTo(o.getSuit());
+            if (compareSuit == 0) {
+                return this.aRank.compareTo(o.getRank());
+            }
+            return compareSuit;
         }
-        return compareRank;
+        catch (NullPointerException e){
+            return 0;
+        }
     }
 }
