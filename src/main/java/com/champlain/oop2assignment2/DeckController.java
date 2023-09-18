@@ -26,6 +26,11 @@ public class DeckController {
         this.displayDeck();
     }
 
+    /**
+     * Shows each card in the deck in order
+     *
+     * @author William Clark
+     */
     @FXML
     protected void onShowButtonClick() {
         for(Card card : aDeck) {

@@ -20,6 +20,11 @@ public class Deck implements CardSource, Iterable<Card> {
         Collections.shuffle(this.aCards);
     }
 
+    /**
+     * Sorts the deck of cards
+     *
+     * @author William Clark
+     */
     public void sort() {
         Collections.sort(this.aCards);
     }
@@ -43,6 +48,11 @@ public class Deck implements CardSource, Iterable<Card> {
         return result;
     }
 
+    /**
+     * Iterator for a deck of cards
+     *
+     * @return iterator for a deck of cards
+     */
     public Iterator<Card> iterator() {
         return aCards.iterator();
     }

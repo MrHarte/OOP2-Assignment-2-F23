@@ -23,6 +23,13 @@ public class Card implements Comparable<Card> {
         return this.aRank + " of " + this.aSuit;
     }
 
+    /**
+     * Compares two cards to each other.
+     *
+     * @param o the object to be compared.
+     * @return the result of the object comparison
+     * @author William Clark
+     */
     @Override
     public int compareTo(Card o) {
         if (this.aSuit == null || this.aRank == null || o.aSuit == null || o.aRank == null) {
