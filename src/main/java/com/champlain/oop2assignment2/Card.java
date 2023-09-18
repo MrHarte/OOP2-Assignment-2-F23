@@ -27,6 +27,13 @@ public class Card implements Comparable<Card> {
     }
 
     public int compareTo(Card pCard){
-        return aRank.ordinal() - pCard.aRank.ordinal();
+        int rankComparison = aRank.ordinal() - pCard.aRank.ordinal();
+
+        if (rankComparison == 0) {
+
+            return aSuit.ordinal() - pCard.aSuit.ordinal();
+        } else {
+            return rankComparison;
+        }
     }
 }
