@@ -20,6 +20,11 @@ public class DeckController {
         this.displayDeck();
     }
 
+    /**
+     * Sorts the deck of cards and displays the deck
+     *
+     * @author William Clark
+     */
     @FXML
     protected void onSortButtonClick() {
         this.aDeck.sort();
