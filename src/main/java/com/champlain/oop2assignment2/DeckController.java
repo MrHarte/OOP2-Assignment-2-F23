@@ -1,9 +1,9 @@
 package com.champlain.oop2assignment2;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
-
-import java.util.Iterator;
 
 public class DeckController {
     @FXML
@@ -29,21 +29,26 @@ public class DeckController {
 
     @FXML
     protected void onShowButtonClick() {
-        StringBuilder message = new StringBuilder();
-        Iterator<Card> iterator = aDeck.iterator();
-        int cardCount = 0;
+        for (Card card : aDeck) {
+            String message = card.toString();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
-        while (iterator.hasNext()) {
-            Card card = iterator.next();
-            
-            message.append("Going through cards with confirmation messages (").append(++cardCount).append(" times): ")
-                    .append(card).append("\n");
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Confirmation");
+
+            alert.setContentText(message);
+
+            ButtonType result = alert.showAndWait().orElse(null);
+
+            if (result == ButtonType.CANCEL) {
+                break;
+            }
         }
 
-        aDeckTextArea.setText(message.toString());
     }
 
     private void displayDeck () {
         this.aDeckTextArea.setText(this.aDeck.toString());
+
     }
 }

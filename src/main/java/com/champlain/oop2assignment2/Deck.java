@@ -32,14 +32,13 @@ public class Deck implements CardSource, Iterable<Card>{
     }
 
     public String toString() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Card currentCard : this.aCards) {
-            result += currentCard.toString() + "\n";
+            result.append(currentCard.toString()).append("\n");
         }
-        return result;
+        return result.toString();
     }
 
-    // added
     @Override
     public Iterator<Card> iterator() {
         return aCards.iterator();
