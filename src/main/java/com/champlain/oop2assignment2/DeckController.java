@@ -20,6 +20,9 @@ public class DeckController {
         this.displayDeck();
     }
 
+    /**
+     * Handles the "Sort" button click event by displaying card information in correct order.
+     */
     @FXML
     protected void onSortButtonClick() {
         //aDeckTextArea.setText("This does not sort anything yet.");
@@ -27,6 +30,9 @@ public class DeckController {
         this.displayDeck();
     }
 
+    /**
+     * Handles the "Show" button click event by displaying card information in a confirmation dialog.
+     */
     @FXML
     protected void onShowButtonClick() {
         //aDeckTextArea.setText("This does not step through anything yet.");
@@ -35,6 +41,13 @@ public class DeckController {
         }
     }
 
+    /**
+     * Displays a confirmation alert dialog with the specified title, header, and content.
+     *
+     * @param title   The title of the alert dialog.
+     * @param header  The header text of the alert dialog.
+     * @param content The content text of the alert dialog.
+     */
     private void showAlert(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(title);
