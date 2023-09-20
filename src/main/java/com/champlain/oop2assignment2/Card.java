@@ -1,6 +1,10 @@
 package com.champlain.oop2assignment2;
 
+/**
+ * Represent the cards of the deck
+ */
 public class Card implements Comparable<Card>{
+
     private final Suit aSuit;
 
     private final Rank aRank;
