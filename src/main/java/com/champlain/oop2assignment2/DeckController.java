@@ -1,6 +1,7 @@
 package com.champlain.oop2assignment2;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 
 public class DeckController {
@@ -21,12 +22,25 @@ public class DeckController {
 
     @FXML
     protected void onSortButtonClick() {
-        aDeckTextArea.setText("This does not sort anything yet.");
+        //aDeckTextArea.setText("This does not sort anything yet.");
+        this.aDeck.sort();
+        this.displayDeck();
     }
 
     @FXML
     protected void onShowButtonClick() {
-        aDeckTextArea.setText("This does not step through anything yet.");
+        //aDeckTextArea.setText("This does not step through anything yet.");
+        for (Card card : aDeck) {
+            showAlert("Confirmation", "Card Information", card.toString());
+        }
+    }
+
+    private void showAlert(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     private void displayDeck () {
