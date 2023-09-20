@@ -5,15 +5,22 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 
+
+/**
+ * this Class is responsible for managing the interaction in the deck of the cards
+ */
 public class DeckController {
+
     @FXML
     private TextArea aDeckTextArea;
 
     private final Deck aDeck = new Deck();
 
+
     public void initialize() {
         this.displayDeck();
     }
+
 
     @FXML
     protected void onShuffleButtonClick() {
@@ -21,12 +28,18 @@ public class DeckController {
         this.displayDeck();
     }
 
+    /**
+     * Sorts the deck and update the displayDeck
+     */
     @FXML
     protected void onSortButtonClick() {
         aDeck.sort();
         this.displayDeck();
     }
 
+    /**
+     * Display each card on the deck as a confirmation message.
+     */
     @FXML
     protected void onShowButtonClick() {
         for (Card card : aDeck) {
@@ -44,11 +57,9 @@ public class DeckController {
                 break;
             }
         }
-
     }
 
     private void displayDeck () {
         this.aDeckTextArea.setText(this.aDeck.toString());
-
     }
 }
