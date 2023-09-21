@@ -1,10 +1,13 @@
 package com.champlain.oop2assignment2;
 
+import javafx.scene.control.Alert;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
-public class Deck implements CardSource {
+public class Deck implements CardSource/*, Iterable<Deck>*/{
     private final List<Card> aCards = new ArrayList<Card>();
 
     public Deck() {
@@ -18,6 +21,20 @@ public class Deck implements CardSource {
     public void shuffle() {
         Collections.shuffle(this.aCards);
     }
+
+    public void sort(){
+        Collections.sort(this.aCards);
+    }
+
+    /*@Override
+    public Iterator iterator(){
+        for(card : aCards){
+            if(this.aCards.HasNext){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(this.aCards.Next);
+            }
+        }
+    }*/
 
     public Card draw() {
         int last = this.aCards.size()-1;
