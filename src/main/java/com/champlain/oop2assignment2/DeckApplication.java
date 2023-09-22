@@ -17,7 +17,20 @@ public class DeckApplication extends Application {
         stage.show();
     }
 
+    /**
+     * Main method to display and test the Deck class.
+     * It creates a deck of cards, shuffles it, and prints each card as confirmation.
+     * Then, it launches the JavaFX application.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
+        Deck deck = new Deck();
+        deck.shuffle();
+
+        for (Card card : deck) {
+            System.out.println("Confirmation: " + card.toString());
+        }
         launch();
     }
 }
