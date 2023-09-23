@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class Deck implements CardSource/*, Iterable<Deck>*/{
+public class Deck implements CardSource, Iterable<Card>{
     private final List<Card> aCards = new ArrayList<Card>();
 
     public Deck() {
@@ -26,15 +26,6 @@ public class Deck implements CardSource/*, Iterable<Deck>*/{
         Collections.sort(this.aCards);
     }
 
-    /*@Override
-    public Iterator iterator(){
-        for(card : aCards){
-            if(this.aCards.HasNext){
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setHeaderText(this.aCards.Next);
-            }
-        }
-    }*/
 
     public Card draw() {
         int last = this.aCards.size()-1;
@@ -53,5 +44,32 @@ public class Deck implements CardSource/*, Iterable<Deck>*/{
             result += currentCard.toString() + "\n";
         }
         return result;
+    }
+
+    @Override
+    public Iterator<Card> iterator() {
+        return new DeckIterator();
+    }
+
+    private class DeckIterator implements Iterator<Card> {
+        private int currentIndex = 0;
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < aCards.size();
+        }
+
+        @Override
+        public Card next() {
+            Card nextCard = aCards.get(currentIndex);
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText(nextCard.toString());
+            alert.showAndWait();
+
+            currentIndex++;
+
+            return nextCard;
+        }
     }
 }
