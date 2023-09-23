@@ -22,6 +22,10 @@ public class Deck implements CardSource, Iterable<Card>{
         Collections.shuffle(this.aCards);
     }
 
+
+    /**
+     * Sorts the deck
+     */
     public void sort(){
         Collections.sort(this.aCards);
     }
@@ -51,14 +55,25 @@ public class Deck implements CardSource, Iterable<Card>{
         return new DeckIterator();
     }
 
+    /**
+     * The DeckIterator goes through all the cards in a deck
+     */
     private class DeckIterator implements Iterator<Card> {
         private int currentIndex = 0;
 
+        /**
+         * hasNext checks if there are any cards left in the deck
+         * @return whether or not there is another card
+         */
         @Override
         public boolean hasNext() {
             return currentIndex < aCards.size();
         }
 
+        /**
+         * next displays the current card and then moves onto the next one
+         * @return the next card
+         */
         @Override
         public Card next() {
             Card nextCard = aCards.get(currentIndex);

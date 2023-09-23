@@ -21,12 +21,20 @@ public class DeckController {
         this.displayDeck();
     }
 
+    /**
+     * The onSortButtonClick method sorts the deck
+     */
     @FXML
     protected void onSortButtonClick() {
         this.aDeck.sort();
         this.displayDeck();
     }
 
+    /**
+     * The onShowButtonClick method uses the deck iterator
+     * to go through the deck of cards and display each one
+     * in order
+     */
     @FXML
     protected void onShowButtonClick() {
         Iterator<Card> iterator = aDeck.iterator();
